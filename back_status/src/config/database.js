@@ -20,8 +20,7 @@ async function connect() {
     console.log("database connected !");
     return connection;
   } catch (e) {
-    console.log("database fail to connect !");
-    console.error(e);
+    console.error("database fail to connect !", e);
     return false;
   }
 }
