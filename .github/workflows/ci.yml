@@ -1,46 +1,34 @@
 name: Webpack workflow
 
-on: [push]
+on:
+  [push]
   # push:
   #   branches: [ master ]
   # pull_request:
   #   branches: [ master ]
 
 jobs:
-  front:
-    runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]
-    
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+build:
 
-    - name: Build
-      run: |
-        npm install
-        npx webpack
-        npm run lint      
+runs-on: ubuntu-latest
+env:
+  MYSQL_PASSWORD: ${DATABASE_PASS}
+  MYSQL_ROOT_PASSWORD: ${DATABASE_PASS}
+  MYSQL_DATABASE: ${DATABASE_NAME}
+  MYSQL_USER: ${DATABASE_USER}
 
-  back:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [12.x, 14.x]     
-         
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+steps:
+  - uses: actions/checkout@v2
+  - name: Build the docker-compose stack
+    run:
+      docker-compose up -d
 
-    - name: Build
-      run: |
-        npm install
-        npm run lint      
+      # - name: Build
+      #   run: |
+      #     npm install
+      #     npm run lint
+      # run: |
+      #   npm install
+      #   npx webpack
+      #   npm run lint
