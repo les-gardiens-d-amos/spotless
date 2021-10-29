@@ -4,13 +4,14 @@ import pool from "../config/database.js";
 const status_api_status = express.Router();
 
 status_api_status.get("/status", (req, res) => {
-  pool.getConnection((e) => {
+  pool.getConnection((e, connection) => {
     if (e) {
-        console.error("db connection fail", e);
+      console.error("db connection fail", e);
       res.json({ message: "connection to back: true, db: false" });
     } else {
+      console.log("db connection successed");
       res.json({ message: "connection to back: true, db: true" });
-      connnection.release();
+      connection.release();
     }
   });
 });
