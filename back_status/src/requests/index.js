@@ -1,11 +1,9 @@
-import express from 'express';
-import connect from '../config/database.js';
+import rails_api_status from "./rails_api_status.js";
+import status_api_status from "./status_api_status.js";
 
-const router = express.Router()
+const index = [ 
+  rails_api_status,
+  status_api_status
+];
 
-router.get('/status', (req, res) => {
-  connect();
-  res.json({ message: "baba" });
-})
-
-export default router;
+export default index;
