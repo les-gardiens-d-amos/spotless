@@ -12,8 +12,6 @@ services:
       
   back:
     build: ./back_status
-    container_name: back_status
-    command: npm run start
     depends_on:
       - mysqldb
     ports: 
