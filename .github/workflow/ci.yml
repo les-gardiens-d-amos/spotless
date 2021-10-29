@@ -1,6 +1,6 @@
 name: Webpack workflow
 
-on: push
+on: [push]
   # push:
   #   branches: [ master ]
   # pull_request:
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [12.x, 14.x]
     
     steps:
     - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]     
+        node-version: [12.x, 14.x]     
          
     steps:
     - uses: actions/checkout@v2
