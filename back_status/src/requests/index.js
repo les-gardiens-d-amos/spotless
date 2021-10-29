@@ -1,11 +1,11 @@
-import express from 'express'
-import connect from '../config/database.js'
+import express from 'express';
+import connect from '../config/database.js';
 
 const router = express.Router()
 
 router.get('/status', (req, res) => {
   connect();
-  res.json({ message: "baba" })
+  res.json({ message: "baba" });
 })
 
-export default router
+export default router;

@@ -1,11 +1,11 @@
-import mysql from 'mysql2/promise'
-import dotenv from 'dotenv'
+import mysql from 'mysql2/promise';
+import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
 async function connect() {
     if (global.connection && global.connection.state !== 'disconnected') {
-      return global.connection
+      return global.connection;
     }
  
     const connection = await mysql.createConnection({
@@ -14,11 +14,11 @@ async function connect() {
       password: process.env.DATABASE_PASS,
       port: 3306,
       user: process.env.DATABASE_USER
-    })
+    });
 
     global.connection = connection;
-    console.log("database connected !")
+    console.log("database connected !");
     return connection;
 }
 
-export default connect
+export default connect;
