@@ -1,0 +1,27 @@
+{
+  "name": "status_app",
+  "version": "0.1.0",
+  "description": "A Docker project for development with a MySQL database, a Node.js backend using Express",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker-compose build",
+    "clean:cache": "docker-compose rm -f",
+    "lint": "eslint src/ --fix",
+    "start": "nodemon ./src/server.js",
+    "start:background": "docker-compose up -d"
+  },
+  "author": "cda",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "nodemon": "^2.0.7"
+  },
+  "type": "module",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5"
+  }
+}
