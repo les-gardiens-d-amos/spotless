@@ -1,9 +1,9 @@
 import express from "express";
 import pool from "../config/database.js";
 
-const status_api_status = express.Router();
+const statusApiStatus = express.Router();
 
-status_api_status.get("/status", (req, res) => {
+statusApiStatus.get("/status", (req, res) => {
   pool.getConnection((e, connection) => {
     if (e) {
       console.error("db connection fail", e);
@@ -16,4 +16,4 @@ status_api_status.get("/status", (req, res) => {
   });
 });
 
-export default status_api_status;
+export default statusApiStatus;

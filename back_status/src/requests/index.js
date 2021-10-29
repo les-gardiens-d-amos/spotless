@@ -1,9 +1,9 @@
-import rails_api_status from "./rails_api_status.js";
-import status_api_status from "./status_api_status.js";
+import railsApiStatus from "./railsApiStatus.js";
+import statusApiStatus from "./statusApiStatus.js";
 
-const index = [ 
-  rails_api_status,
-  status_api_status
+const index = [
+  railsApiStatus,
+  statusApiStatus,
 ];
 
 export default index;
