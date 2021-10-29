@@ -6,11 +6,15 @@
   "scripts": {
     "build": "docker-compose build",
     "clean:cache": "docker-compose rm -f",
+    "lint": "eslint src/ --fix",
     "start": "nodemon ./src/server.js",
     "start:background": "docker-compose up -d"
   },
   "author": "cda",
   "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.25.2",
     "nodemon": "^2.0.7"
   },
   "type": "module",
